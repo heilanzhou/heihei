@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="report" content='{"pid": "blog", "spm":"1001.2101"}'>
+<meta name="applicable-device" content="mobile">
+<meta http-equiv="Cache-Control" content="no-transform"/>
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<meta name="referrer" content="always">
+<meta name="csdn-baidu-search" content='{"autorun":true,"install":true,"keyword":"json和字典有什么区别"}'>
+<title>python 字典与json的区别_u010569893的博客-CSDN博客_json和字典有什么区别</title>
+<meta name="description" content='python 字典与json的区别一. python的字典和json字符串的区别python中，json和dict非常类似，都是key-value的形式，而且json和dict也可以非常方便的通过dumps和loads互转，但是它们之间还是有区别的：json：是一种数据格式，是纯字符串。可以被解析成python的dict或其他形式。dict：是一个完整的数据结构，是对hash table这...'>
+<link rel="canonical" href="https://blog.csdn.net/u010569893/article/details/97538914">
+<link  href="https://g.csdnimg.cn/static/logo/favicon32.ico"  rel="shortcut icon" type="image/x-icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="https://csdnimg.cn/release/blogv2/dist/mobile/img/touch-icon-iphone-57.png"/>
+<link rel="apple-touch-icon" sizes="114x114" href="https://csdnimg.cn/release/blogv2/dist/mobile/img/touch-icon-iphone-114.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="https://csdnimg.cn/release/blogv2/dist/mobile/img/touch-icon-iphone-72.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="https://csdnimg.cn/release/blogv2/dist/mobile/img/touch-icon-iphone-144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="https://csdnimg.cn/release/blogv2/dist/mobile/img/touch-icon-iphone-120.png" />
+<script src="//g.csdnimg.cn/tingyun/1.8.5/blog-m.js" type='text/javascript'></script>
+<script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="https://g.csdnimg.cn/debug/1.0.0/debug.js"></script>
+<script>
+    //h5定义rem
+    initpage();
+    window.onresize = initpage;
+    function initpage() {
+        var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+        var _html = document.getElementsByTagName('html')[0];
+        window.fontSize = view_width > 750 ? 750 / 7.5 : view_width / 7.5;
+        _html.style.fontSize = window.fontSize + 'px';
+    }
+</script>
+    <style>
+        #content_views pre{
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none; 
+            user-select: none; 
+        }
+        #content_views pre code{
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none; 
+            user-select: none; }
+    </style>
+<script>
+  (function(){ 
+    var el = document.createElement("script"); 
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1abfa13dfe74d72d41d83c86d240de427e7cac50c51ead53b2e79d40c7952a23ed7716d05b4a0f683a653eab3e214672511de2457e74e99286eb2c33f4428830"; 
+    el.id = "ttzz"; 
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(el, s);
+  })(window)
+</script>
+<script type="text/javascript">
+        var articleId = "97538914";
+        var username = "u010569893";
+        var currentUserName = "";
+        var blog_address = "https://blog.csdn.net/u010569893";
+        var is_fav = false;
+        var base_url = "https://blog.csdn.net/";
+        var fileName = "97538914";
+        var baiduKey = "json和字典有什么区别";   
+        var needInsertBaidu = true;
+        var totalFloor = 0;
+        if(window.location.host.split('.').length == 3) {
+            blog_address = base_url + username;
+        }
+        var highlight = ["python","pytho","pyth","json","区别","字典","pyt","py","js","son","th","hon","与","和","有"];
+        var isRecommendModule = true;
+        var isBaiduPre = true;
+        var baiduCount = 2;
+        var mall_vip_url = "https://mall.csdn.net/vip";
+        var articleDetailUrl = "https://blog.csdn.net/u010569893/article/details/97538914";
+        var canRead = true;
+        var recommendRegularDomainArr = ["blog.csdn.net/.+/article/details/","download.csdn.net/download/","edu.csdn.net/course/detail/","ask.csdn.net/questions/","bbs.csdn.net/topics/","www.csdn.net/gather_.+/"];
+        var baiduSearchType = "baidulandingword";
+        var blogStaticHost = "https://csdnimg.cn/release/blogv2/"
+        var articleSource = 1;
+        var articleReport = '{"pid": "blog", "spm":"1001.2101"}';
+        var articleTitle = "python 字典与json的区别";
+        var baiduSearchChannel = 'wap_relevant'
+        var baiduSearchIdentification = '.wap_blog_relevant_default'
+        var distRequestId = ''
+    </script>
+    <script type="application/ld+json">{"@context":"https://ziyuan.baidu.com/contexts/cambrian.jsonld","@id":"https://blog.csdn.net/u010569893/article/details/97538914","appid":"1638831770136827","pubDate":"2019-07-27T18:27:11","title":"python 字典与json的区别_u010569893的博客-CSDN博客_json和字典有什么区别","upDate":"2019-07-27T18:27:11"}</script>
+</head>
+
+<body>
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<script>
+    window.csdn = window.csdn || {};
+    window.csdn.mobileToolbar = window.csdn.mobileToolbar || {};
+    window.csdn.mobileToolbar.fix = true;
+    window.csdn.mobileToolbar.mobileParams = {
+        prodTitle: 'python 字典与json的区别',
+        prodHref: 'https://blog.csdn.net/u010569893'
+    }
+</script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mobile/css/detail_enter-d38ccd56e1.min.css">
+<style>
+    .m_toolbar_link span {
+        font-size: .32rem;
+        line-height: 24px;
+    }
+</style>
+    <script>
+        var toolbarSearchExt = '{"landingWord":["json和字典有什么区别"],"queryWord":"","tag":[],"title":"python 字典与json的区别"}';
+    </script>
+<link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/m_toolbar-2.1.2.css">
+<script type="text/javascript" id="m-toolbar-tpl-scriptId" prod="blog" src="https://csdnimg.cn/public/common/toolbar/js/m_toolbar-2.1.2.js"></script>
+<script type="text/javascript">
+    var canReadAll = false; //普通文章
+    var BlogData = {
+        like: "0" 
+    }
+    var currentUrl = 'https://blog.csdn.net/u010569893/article/details/97538914';
+    window.realDetailUrl = 'https://blog.csdn.net/u010569893/article/details/97538914';
+    var blogMoveHomeArticle = false;
+    var nickName = "追梦杏花天影";
+    var avatar = "https://profile.csdnimg.cn/3/2/F/3_u010569893";
+    function getQueryString(name) {   
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象  
+      var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+      if( r != null ) return decodeURIComponent( r[2] ); return '';   
+    }
+    function stripscript(s){ 
+      var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%]") 
+      var rs = ""; 
+      for (var i = 0; i < s.length; i++) { 
+        rs = rs+s.substr(i, 1).replace(pattern, ''); 
+      } 
+      return rs; 
+    }
+    var blogHotWords = stripscript(getQueryString('utm_term')).length > 1 ? stripscript(getQueryString('utm_term')) : ''
+    var linkPage = true;
+    var showHeadWord = true;
+    var isLikeStatus = false;
+    var isUnLikeStatus = false;
+</script>
+<script type="text/javascript">
+    var shareCardUrl = 'https://app-blog.csdn.net/share?article_id=97538914&username=u010569893';
+</script>
+<div id="main">
+<div class="aside-header-fixed">
+    <div class="aside-left">
+        <img class="iconfont" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/iconLeftArrow.png" alt="">
+        <img class="portrait" src="https://profile.csdnimg.cn/3/2/F/3_u010569893" alt="">
+            <span>追梦杏花天影</span>
+    </div>
+    <div class="aside-right">
+        <a class="follow" id="detailFollowNew" data-id="97538914">关注</a>
+    </div>
+</div>
+        <div class="a_d_1"></div>
+        <div id="article" class="margin_sides">
+                         <h1 class="article_title" id="articleContentId">
+                <span class="tit">python 字典与json的区别</span>
+                    <span class="article-type type-1 float-none">原创</span>
+            </h1>
+            <div class="creat-time-box">
+                <span class="creat-time">2019-07-27 18:27:11</span>
+                <span class="have-heart-count">
+                    <img class="have-heart-img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/hotHeart.png"> 
+                    9点赞
+                </span>
+            </div>
+            <div class="article_info clearfix">
+                <div class="top_user_mod clearfix">
+                    <div class="top_user_info floatL clearfix">
+                        <dl>
+                            <dt class="floatL">
+                                <a href="https://blog.csdn.net/u010569893" target="_blank" rel="noopener" class="clearfix top_user_info_a">
+                                    <img class="avatar" src="https://profile.csdnimg.cn/3/2/F/3_u010569893" alt="">
+                                </a>
+                            </dt>
+                            <dd class="floatL">
+                                <p class="line-nick-name"> 
+                                    <span class="nick_name odd-overhidden">追梦杏花天影</span>
+                                    
+                                    <img class="identity-icon" src="https://csdnimg.cn/identity/blog5.png"/>
+                                    
+                                    
+                                </p>
+                                <p class="line-detaile">
+                                    <span class="code_years">码龄9年 </span>
+                                </p>
+                            </dd>          
+                                    <a class="follow" id="detailFollow" data-id="8572040">关注</a>
+                        </dl>
+                    </div>
+                </div>
+            </div>  
+            <div class="baidu_pl" id="csdn-previewimg-box">
+                    <div class="article_content" style="overflow:hidden">
+                        <div id="content_views" class="markdown_views clearfix prism-atom-one-dark">
+                        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/markdown_views-d7a94ec6ab.css">
+                        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mobile/css/edit_views_md-58ec606e6b.min.css">
+                        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/style-49037e4d27.css">
+                        <p>python 字典与json的区别</p> 
+<h2><a id="_pythonjson_2"></a>一. python的字典和json字符串的区别</h2> 
+<p>python中&#xff0c;json和dict非常类似&#xff0c;都是key-value的形式&#xff0c;而且json和dict也可以非常方便的通过dumps和loads互转&#xff0c;但是它们之间还是有区别的&#xff1a;</p> 
+<p>json&#xff1a;是一种数据格式&#xff0c;是纯字符串。可以被解析成python的dict或其他形式。</p> 
+<p>dict&#xff1a;是一个完整的数据结构&#xff0c;是对hash table这一数据结构的实现&#xff0c;是一套从存储到提取都封装好的方案。它使用内置的hash函数来规划key对应的value的存储位置&#xff0c;从而获得O(1)的数据读取速度。</p> 
+<h2><a id="_jsondict_10"></a>二. json和dict对比&#xff1a;</h2> 
+<p>1&#xff09;j<strong>son的key只能是字符串</strong>&#xff0c;dict的key可以是任何可hash的对象&#xff0c;例如&#xff1a;字符串、数字、元组等。</p> 
+<p>2&#xff09;json的key可以是有序、重复的&#xff1b;dict的key不可重复&#xff1b;</p> 
+<p>3&#xff09;json的value只能是字符串、浮点数、布尔值或者null,或者它们构成的数组或者对象&#xff1b;</p> 
+<p>4&#xff09;json任意key存在默认值undefined,dict默认没有默认值&#xff1b;</p> 
+<p>5&#xff09;json访问方式可以是[],也可以是.,遍历方式分in&#xff0c;of&#xff1b; dict的value仅仅可以下标访问&#xff1b;</p> 
+<p>6&#xff09;json的<strong>字符串强制用双引号</strong>&#xff0c;dict的字符串可以用单引号、双引号&#xff1b;</p> 
+<p>7&#xff09;dict可以嵌套tuple,json里只有数组</p> 
+<p>8&#xff09;json&#xff1a;true、false、null</p> 
+<p>9&#xff09;dict&#xff1a;True、False、None</p> 
+<p>10&#xff09;json中文必须是unicode编码&#xff0c;如“\u6211”</p> 
+<p>11&#xff09;json的类型时字符串&#xff0c;字典的类型是dict</p> 
+<h2><a id="__36"></a>三. 示例&#xff1a;</h2> 
+<pre><code>#coding:utf-8
+import sys
+import json
+
+dic &#61; {&#34;name&#34;: &#34;王五&#34;, &#34;age&#34;:29, &#34;is_male&#34;:False, &#34;school&#34;:None}
+print &#34;dic:&#34;, dic
+
+my_json &#61; json.dumps(dic)
+print &#34;my_json:&#34;, my_json
+</code></pre> 
+<p>结果&#xff1a;</p> 
+<pre><code>dic: {&#39;age&#39;: 29, &#39;school&#39;: None, &#39;name&#39;: &#39;\xe7\x8e\x8b\xe4\xba\x94&#39;, &#39;is_male&#39;: False}
+my_json: {&#34;age&#34;: 29, &#34;school&#34;: null, &#34;name&#34;: &#34;\u738b\u4e94&#34;, &#34;is_male&#34;: false}
+</code></pre>
+                        </div>
+                    <div id="treeSkill"></div>
+                    <script type="text/javascript">
+                        $(function () {
+                            if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+                                $('div.markdown_views')[0].className = 'markdown_views';
+                            }
+                            dp.SyntaxHighlighter.HighlightAll('pre');
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="readall_box" data-report-view='{"mod":"popu_376","dest":"https://blog.csdn.net/u010569893/article/details/97538914"}' data-report-click='{"mod":"popu_376","dest":"https://blog.csdn.net/u010569893/article/details/97538914"}'>
+                <div class="read_more_mask"></div>
+                <div class="btn_mod">
+                        <script>
+                            var canReadAll = false;
+                        </script>
+                        <a class="btn_open_app_prompt_box detail-open-removed">
+                            <span>点击阅读全文</span>
+                            <svg t="1577180602888" class="icon" viewBox="0 0 1820 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5614" width="21" height="12"><path d="M917.33333327 623.189333l332.394667-333.525333a52.906667 52.906667 0 0 1 75.136 0 53.461333 53.461333 0 0 1 0 75.392L956.80000027 734.4a52.864 52.864 0 0 1-39.445334 15.530667 52.672 52.672 0 0 1-39.424-15.530667L509.82400027 365.056a53.418667 53.418667 0 0 1 0-75.392 52.949333 52.949333 0 0 1 75.114666 0L917.33333327 623.189333z m0 0" fill="" p-id="5615"></path></svg>
+                        </a>
+                        
+                </div>  
+            </div>    
+            <!--############ 已登录-->
+        </div>
+        <div class="btn_open_app_prompt_div">
+            <p id="btn_open_app_prompt_item" class="btn_open_app_prompt_item">打开CSDN，阅读体验更佳</p>
+        </div>
+        <script type="text/javascript" src="https://csdnimg.cn/release/blogv2/dist/components/js/pc_wap_highlight-7e7de84184.min.js"></script>
+        <script type="text/javascript" src="https://csdnimg.cn/release/blogv2/dist/components/js/pc_wap_common-fbcbe8567e.min.js"></script>
+        <script type="text/javascript" src="https://csdnimg.cn/release/blogv2/dist/components/js/edit_copy_code-1af6b1fb37.min.js"></script>
+        <script>
+            $(".MathJax").remove();
+        </script>    <!-- 广告 -->
+            <div class='spec_space'></div>
+            <div class="add-firstAd">
+                <div id="kp_box_511" data-pid="511"><script src="//c.a.spush.com/wap/script/md/md-1000169/index.js"></script><img class="pre-img-lasy" data-src="https://kunyu.csdn.net/1.png?p=511&a=773&c=0&k=&spm=1001.2101.3001.4621&d=1&t=1&u=db76fea292d74bfe954abcf845e8a502" style="display: block;width: 0px;height: 0px;"></div>
+            </div>
+    <div class='spec_space'></div>
+    <!-- 推荐拓展 -->
+        <div id="first_recommend_list">
+    <div class="recommend_list ">
+        <dl></dl>
+            <dl class="container-fluid container-fluid-flex container-download" data-url="https://download.csdn.net/download/weixin_38645862/12865641"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.1","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-download-2~default~CTRLIST~default-1.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"1","strategy":"2~default~CTRLIST~default","dest":"https://download.csdn.net/download/weixin_38645862/12865641"}'>
+                <div class="recommend-jump-app" data-type="download">
+                <div class="app-open-box">
+                    <h4 class="recommend_title ">
+                        <a href="https://download.csdn.net/download/weixin_38645862/12865641" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.1","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-download-2~default~CTRLIST~default-1.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"1","strategy":"2~default~CTRLIST~default","dest":"https://download.csdn.net/download/weixin_38645862/12865641"}'  data-report-query='spm=1001.2101.3001.6650.1&utm_medium=distribute.wap_relevant.none-task-download-2%7Edefault%7ECTRLIST%7Edefault-1.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-download-2%7Edefault%7ECTRLIST%7Edefault-1.wap_blog_relevant_default'>
+                            <div class="left">对<em>python</em>中dict<em>和</em><em>json</em>的<em>区别</em>详解</div>
+                        </a>
+                    </h4>
+                        <div class="desc">
+                                <a class="text"  href="https://download.csdn.net/download/weixin_38645862/12865641" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.1","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-download-2~default~CTRLIST~default-1.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"1","strategy":"2~default~CTRLIST~default","dest":"https://download.csdn.net/download/weixin_38645862/12865641"}'  data-report-query='spm=1001.2101.3001.6650.1&utm_medium=distribute.wap_relevant.none-task-download-2%7Edefault%7ECTRLIST%7Edefault-1.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-download-2%7Edefault%7ECTRLIST%7Edefault-1.wap_blog_relevant_default'>
+                                    今天小编就为大家分享一篇对<em>python</em>中dict<em>和</em><em>json</em>的<em>区别</em>详解，具<em>有</em>很好的参考价值，希望对大家<em>有</em>所帮助。一起跟随小编过来看看吧
+                                </a>
+                        </div>
+                </div>
+                </div>
+            </dl>
+            <dl class="container-fluid container-fluid-flex container-blog" data-url="https://blog.csdn.net/u013250071/article/details/83828587"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.2","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~CTRLIST~default-2.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"2","strategy":"2~default~CTRLIST~default","dest":"https://blog.csdn.net/u013250071/article/details/83828587"}'>
+                <div class="recommend-jump-app" data-type="blog">
+                <div class="app-open-box">
+                    <h4 class="recommend_title ">
+                        <a>
+                            <div class="left"><em>JSON</em> <em>和</em> <em>Python</em>中<em>字典</em>的<em>区别</em></div>
+                        </a>
+                    </h4>
+                        <div class="desc">
+                                <a class="text active">
+                                    一、定义
+
+在<em>python</em>中，<em>json</em><em>和</em>dict非常类似，都是以key-value的形式存储数据，
+
+而且<em>json</em>、dict也可以非常方便的通过dumps、loads进行格式的相互转换。
+
+那既然都是key-value格式，为啥还需要进行格式转换呢？
+
+<em>json</em>（JavaScript Object Notation）：
+
+<em>json</em>是一种数据格式，是纯字符串。可以被解析成<em>Python</em>的dict或者其...
+                                </a>
+                                <a class="flag" data-type="blog" data-href="https://blog.csdn.net/u013250071/article/details/83828587" href="https://blog.csdn.net/u013250071/article/details/83828587" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.2","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~CTRLIST~default-2.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"2","strategy":"2~default~CTRLIST~default","dest":"https://blog.csdn.net/u013250071/article/details/83828587"}'  data-report-query='spm=1001.2101.3001.6650.2&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.wap_blog_relevant_default'>浏览器打开</a>
+                        </div>
+                </div>
+                </div>
+            </dl>
+    </div>
+        </div>
+        <div class = 'spec_space'></div>
+    <!-- 评论 -->
+    <div id="comment" class=""></div>
+    <div class='spec_space spec_space_hide'></div>
+    <!-- 推荐 -->
+    <div id="recommend">
+    <div class="recommend_list ">
+        <dl></dl>
+            <dl class="container-fluid container-fluid-flex container-blog" data-url="https://luoluo.blog.csdn.net/article/details/105110052"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.3","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~CTRLIST~default-3.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"3","strategy":"2~default~CTRLIST~default","dest":"https://luoluo.blog.csdn.net/article/details/105110052"}'>
+                <div class="recommend-jump-app" data-type="blog">
+                <div class="app-open-box">
+                    <h4 class="recommend_title ">
+                        <a>
+                            <div class="left"><em>json</em><em>与</em><em>Python</em>中<em>字典</em>的<em>区别</em></div>
+                        </a>
+                    </h4>
+                        <div class="desc">
+                                <a class="text active">
+                                    前言：
+
+我们来看看<em>json</em><em>和</em><em>python</em>中的<em>字典</em>的概念<em>有</em>什么异同。
+
+
+
+
+
+
+
+
+
+
+
+概念：
+
+<em>json</em>：
+
+(JavaScript Object Notation)的首字母缩写，字面的意思是(javascript对象表示法)，这里说的<em>json</em>指的是类似于javascript对象的一种数据格式对象，目前这种数据格式比较流行，逐渐替换掉了传统的xml数据格式， 前端使用ajax的时候...
+                                </a>
+                                <a class="flag" data-type="blog" data-href="https://luoluo.blog.csdn.net/article/details/105110052" href="https://luoluo.blog.csdn.net/article/details/105110052" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.3","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~CTRLIST~default-3.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"3","strategy":"2~default~CTRLIST~default","dest":"https://luoluo.blog.csdn.net/article/details/105110052"}'  data-report-query='spm=1001.2101.3001.6650.3&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-3.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-3.wap_blog_relevant_default'>浏览器打开</a>
+                        </div>
+                </div>
+                </div>
+            </dl>
+            <dl class="container-fluid container-fluid-flex container-blog" data-url="https://blog.csdn.net/GitzLiu/article/details/54296971"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.4","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~CTRLIST~default-4.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"4","strategy":"2~default~CTRLIST~default","dest":"https://blog.csdn.net/GitzLiu/article/details/54296971"}'>
+                <div class="recommend-jump-app" data-type="blog">
+                <div class="app-open-box">
+                    <h4 class="recommend_title ">
+                        <a>
+                            <div class="left"><em>Python</em><em>字典</em><em>与</em><em>json</em>的异同</div>
+                        </a>
+                    </h4>
+                        <div class="desc">
+                                <a class="text active">
+                                    我们先来看一下，<em>python</em>　<em>字典</em>结构：
+
+ab = { &#39;liu&#39; :&#39;liu@<em>python</em>.info&#39;, 
+        &#39;Larry&#39; : &#39;larry@wall.org&#39;, 
+        &#39;Matsumoto&#39; : &#39;matz@ruby-lang.org&#39;, 
+        &#39;Spammer&#39; : &#39;spammer@hotmail.com&#39; 
+}
+
+<em>json</em>　数据形式：
+
+{
+                                </a>
+                                <a class="flag" data-type="blog" data-href="https://blog.csdn.net/GitzLiu/article/details/54296971" href="https://blog.csdn.net/GitzLiu/article/details/54296971" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.4","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~CTRLIST~default-4.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"4","strategy":"2~default~CTRLIST~default","dest":"https://blog.csdn.net/GitzLiu/article/details/54296971"}'  data-report-query='spm=1001.2101.3001.6650.4&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-4.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-4.wap_blog_relevant_default'>浏览器打开</a>
+                        </div>
+                </div>
+                </div>
+            </dl>
+            <dl class="container-fluid container-fluid-flex container-blog" data-url="https://blog.csdn.net/lelemom/article/details/89449670"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.5","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~CTRLIST~default-5.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"5","strategy":"2~default~CTRLIST~default","dest":"https://blog.csdn.net/lelemom/article/details/89449670"}'>
+                <div class="recommend-jump-app" data-type="blog">
+                <div class="app-open-box">
+                    <h4 class="recommend_title ">
+                        <a>
+                            <div class="left"><em>json</em> <em>和</em><em>字典</em> dict 的<em>区别</em>？</div>
+                        </a>
+                    </h4>
+                        <div class="desc">
+                                <a class="text active">
+                                    <em>python</em> 里面的基础数据类型<em>有</em>：int、str、 float、list、bool、tuple、 dict、set 这几种，里面没 <em>json</em> 这种数据类型。 
+
+<em>JSON</em>(JavaScript Object Notation, <em>JS</em> 对象简谱) 是一种轻量级的数据交换格式。它基于 ECMAScript (欧洲计算机协会制定的 <em>js</em> 规范)的一个子集，采用完全独立于编程语言的文本格式来存储<em>和</em>表示...
+                                </a>
+                                <a class="flag" data-type="blog" data-href="https://blog.csdn.net/lelemom/article/details/89449670" href="https://blog.csdn.net/lelemom/article/details/89449670" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.5","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~CTRLIST~default-5.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"5","strategy":"2~default~CTRLIST~default","dest":"https://blog.csdn.net/lelemom/article/details/89449670"}'  data-report-query='spm=1001.2101.3001.6650.5&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-5.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-5.wap_blog_relevant_default'>浏览器打开</a>
+                        </div>
+                </div>
+                </div>
+            </dl>
+            <dl class="container-fluid container-fluid-flex container-blog" data-url="https://blog.csdn.net/qq_40994972/article/details/84189430"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.6","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"6","strategy":"2~default~BlogCommendFromBaidu~default","dest":"https://blog.csdn.net/qq_40994972/article/details/84189430"}'>
+                <div class="recommend-jump-app" data-type="blog">
+                <div class="app-open-box">
+                    <h4 class="recommend_title ">
+                        <a>
+                            <div class="left"><em>json</em>字符串<em>和</em><em>字典</em>的<em>区别</em></div>
+                            <div class="tag">热门推荐</div>
+                        </a>
+                    </h4>
+                        <div class="desc">
+                                <a class="text active">
+                                    <em>json</em>字符串<em>和</em><em>字典</em>的<em>区别</em>：
+<em>json</em>：
+(JavaScript Object Notation)的首字母缩写，字面的意思是(javascript对象表示法)，这里说的<em>json</em>指的是类似于javascript对象的一种数据格式对象，目前这种数据格式比较流行，逐渐替换掉了传统的xml数据格式， 前端使用ajax的时候后台返回该前端的数据格式就是<em>json</em>格式的。
+
+<em>字典</em>是一种数据结构，而<em>json</em>是一种...
+                                </a>
+                                <a class="flag" data-type="blog" data-href="https://blog.csdn.net/qq_40994972/article/details/84189430" href="https://blog.csdn.net/qq_40994972/article/details/84189430" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.6","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"6","strategy":"2~default~BlogCommendFromBaidu~default","dest":"https://blog.csdn.net/qq_40994972/article/details/84189430"}'  data-report-query='spm=1001.2101.3001.6650.6&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-6.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-6.wap_blog_relevant_default'>浏览器打开</a>
+                        </div>
+                </div>
+                </div>
+            </dl>
+            <dl class="container-fluid container-fluid-flex container-blog" data-url="https://blog.csdn.net/gymaisyl/article/details/83037634"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.7","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-7.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"7","strategy":"2~default~BlogCommendFromBaidu~default","dest":"https://blog.csdn.net/gymaisyl/article/details/83037634"}'>
+                <div class="recommend-jump-app" data-type="blog">
+                <div class="app-open-box">
+                    <h4 class="recommend_title ">
+                        <a>
+                            <div class="left"><em>json</em><em>和</em><em>python</em>中的<em>字典</em>的<em>区别</em><em>与</em>联系</div>
+                        </a>
+                    </h4>
+                        <div class="desc">
+                                <a class="text active">
+                                    <em>json</em>：
+<em>json</em>是一种数据的表现形式，是一种数据格式：比如在ajax中的数据接收类型，一般都是<em>json</em>类型的数据格式，也会<em>有</em>txt的数据格式；如下代码所示：
+$.ajax({
+    url: &#39;/change_data&#39;,
+    type: &#39;GET&#39;,
+    dataType: &#39;<em>json</em>&#39;,  //  <em>json</em> 为接收服务器返回的数据类型
+    data:{&#39;code&#39;:30026...
+                                </a>
+                                <a class="flag" data-type="blog" data-href="https://blog.csdn.net/gymaisyl/article/details/83037634" href="https://blog.csdn.net/gymaisyl/article/details/83037634" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.7","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-7.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"7","strategy":"2~default~BlogCommendFromBaidu~default","dest":"https://blog.csdn.net/gymaisyl/article/details/83037634"}'  data-report-query='spm=1001.2101.3001.6650.7&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-7.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-7.wap_blog_relevant_default'>浏览器打开</a>
+                        </div>
+                </div>
+                </div>
+            </dl>
+            <dl class="container-fluid container-fluid-flex container-blog" data-url="https://blog.csdn.net/weixin_30500289/article/details/95423260"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.8","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-8.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"8","strategy":"2~default~BlogCommendFromBaidu~default","dest":"https://blog.csdn.net/weixin_30500289/article/details/95423260"}'>
+                <div class="recommend-jump-app" data-type="blog">
+                <div class="app-open-box">
+                    <h4 class="recommend_title ">
+                        <a>
+                            <div class="left"><em>字典</em><em>和</em><em>json</em> 的<em>区别</em> <em>和</em>转换</div>
+                        </a>
+                    </h4>
+                        <div class="desc">
+                                <a class="text active">
+                                    前言：<em>字典</em><em>和</em><em>json</em>非常像。接下来比较一下两者的异同
+先看一下<em>字典</em>的写法：
+
+a = {&#39;a&#39;:&#39;1&#39;,
+     &#39;b&#39;:&#39;2&#39;,
+     &#39;c&#39;:&#39;3&#39;
+     }
+
+再看一下<em>json</em>的写法：
+
+{
+    &quot;studentInfo&quot;:
+    {
+        &quot;id&quot;:123456,
+        &quot;stu_name&quot;:&quot;Dorra&quot;
+    }
+}...
+                                </a>
+                                <a class="flag" data-type="blog" data-href="https://blog.csdn.net/weixin_30500289/article/details/95423260" href="https://blog.csdn.net/weixin_30500289/article/details/95423260" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.8","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-8.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"8","strategy":"2~default~BlogCommendFromBaidu~default","dest":"https://blog.csdn.net/weixin_30500289/article/details/95423260"}'  data-report-query='spm=1001.2101.3001.6650.8&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-8.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-8.wap_blog_relevant_default'>浏览器打开</a>
+                        </div>
+                </div>
+                </div>
+            </dl>
+            <dl class="container-fluid container-fluid-flex container-blog" data-url="https://blog.csdn.net/qq_45758854/article/details/120550693"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.9","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-9.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"9","strategy":"2~default~BlogCommendFromBaidu~default","dest":"https://blog.csdn.net/qq_45758854/article/details/120550693"}'>
+                <div class="recommend-jump-app" data-type="blog">
+                <div class="app-open-box">
+                    <h4 class="recommend_title ">
+                        <a>
+                            <div class="left"><em>字典</em><em>和</em><em>Json</em>的<em>区别</em></div>
+                            <div class="tag">最新发布</div>
+                        </a>
+                    </h4>
+                        <div class="desc">
+                                <a class="text active">
+                                    1.<em>字典</em>
+
+<em>字典</em>是一种数据结构，是<em>python</em>中的一种数据类型；它是一种可变类型，可以存储任意类型的数值，以 key：value 的形式存储数据，但是 key 可以是任意可hash的对象，在一个<em>字典</em>中不允许出现两个相同的key值，如果出现，后面一个key值会覆盖前面的key值。
+
+2. <em>Json</em>
+
+<em>Json</em>是一种打包的数据格式，本质上是字符串，也是按照key：value 来存储数据，key 只能时字符串，且可以<em>有</em>序、重复；必须使用双引号作为key或者值的边界符，不能使用单引号，使用单引号或者不使用引号...
+                                </a>
+                                <a class="flag" data-type="blog" data-href="https://blog.csdn.net/qq_45758854/article/details/120550693" href="https://blog.csdn.net/qq_45758854/article/details/120550693" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.9","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-9.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"9","strategy":"2~default~BlogCommendFromBaidu~default","dest":"https://blog.csdn.net/qq_45758854/article/details/120550693"}'  data-report-query='spm=1001.2101.3001.6650.9&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-9.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-9.wap_blog_relevant_default'>浏览器打开</a>
+                        </div>
+                </div>
+                </div>
+            </dl>
+            <dl class="container-fluid container-fluid-flex container-blog" data-url="https://blog.csdn.net/liuskyter/article/details/100191744"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.10","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-10.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"10","strategy":"2~default~BlogCommendFromBaidu~default","dest":"https://blog.csdn.net/liuskyter/article/details/100191744"}'>
+                <div class="recommend-jump-app" data-type="blog">
+                <div class="app-open-box">
+                    <h4 class="recommend_title ">
+                        <a>
+                            <div class="left"><em>python</em> 中 <em>json</em> <em>和</em><em>字典</em><em>区别</em></div>
+                        </a>
+                    </h4>
+                        <div class="desc">
+                                <a class="text active">
+                                    <em>字典</em>结构：
+
+
+
+<em>Json</em> 结构：
+
+
+{
+    &quot;studentInfo&quot;:
+    {
+        &quot;id&quot;:123456,
+        &quot;stu_name&quot;:&quot;Dorra&quot;
+    }
+}
+
+<em>Json</em> <em>与</em><em>字典</em>之间转换：
+
+<em>json</em>.dumps()<em>和</em><em>json</em>.loads()是<em>json</em>格式处理函数（可以这么理解，<em>json</em>是字符串）
+　　(1)<em>json</em>.dumps()函数是将一个<em>Pyth</em>...
+                                </a>
+                                <a class="flag" data-type="blog" data-href="https://blog.csdn.net/liuskyter/article/details/100191744" href="https://blog.csdn.net/liuskyter/article/details/100191744" target="_self"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.10","mod":"popu_36","extra":"{\"utm_medium\":\"distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-10.wap_blog_relevant_default\"}","dist_request_id":"1641467457332_39300","ab_strategy":"default","index":"10","strategy":"2~default~BlogCommendFromBaidu~default","dest":"https://blog.csdn.net/liuskyter/article/details/100191744"}'  data-report-query='spm=1001.2101.3001.6650.10&utm_medium=distribute.wap_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-10.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-10.wap_blog_relevant_default'>浏览器打开</a>
+                        </div>
+                </div>
+                </div>
+            </dl>
+    </div>
+    </div>
+      <script type="text/javascript" src="https://csdnimg.cn/release/blogv2/dist/components/js/pc_wap_commontools-bcbbcd34a2.min.js" async></script>
+<div id="operate" class="clearfix">
+  <div class="clearfix content-box">
+    <div class="operate_write operate_common  floatL"
+        data-report-click='{"mod":"popu_544","dest":"https://blog.csdn.net/u010569893/article/details/97538914"}'>
+        <span class="comment-bt-write">
+            <span class="enter_text"><img class="operate_img"
+                    src="https://csdnimg.cn/release/blogv2/dist/mobile/img/writeIcon@2x.png">写评论</span>
+            <img class="comment-sofa-flag" src="https://csdnimg.cn/release/blogv2/dist/pc/img/commentFlag@2x.png">
+        </span>
+        <span class="operate_write_box comment-bt-write">
+            <img class="operate_img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/comment@2x.png">
+            <span class="count">评论</span>
+        </span>
+    </div>
+    <div class="collect-btn operate_add operate_common floatL"
+        data-report-click='{"mod":"popu_794","dest":"https://blog.csdn.net/u010569893/article/details/97538914"}'>
+        <span class="operate_collect_box">
+            <span style="display:block" class="uncollect">
+                <img class="operate_img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/uncollect@2x.png">
+            </span>
+            <span style="display:none" class="collect">
+                <img class="operate_img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/collect@2x.png">
+            </span>
+            <span class="count">
+                51
+            </span>
+        </span>
+    </div>
+    <div class="like-btn operate_heart operate_common floatL" data-dest="https://blog.csdn.net/u010569893/article/details/97538914">
+        <span class="operate_heart_box">
+            <span style="display:block" class="unheart">
+                <img class="operate_img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/unheart@2x.png">
+            </span>
+            <span style="display:none" class="heart">
+                <img class="operate_img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/heart@2x.png">
+            </span>
+            <span class="count">
+                    9
+            </span>
+        </span>
+    </div>
+    <div class="unlike-btn operate_steplike operate_common floatL">
+        <span class="operate_heart_box">
+            <span style="display:block" class="stepunlike">
+                <img class="operate_img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/stepUnLike.png">
+            </span>
+            <span style="display:none" class="steplike">
+                <img class="operate_img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/stepLike.png">
+            </span>
+            <span class="count">
+                踩
+            </span>
+        </span>
+    </div>
+    <div class="share-btn operate_share operate_common floatL">
+        <a>
+            <span class="operate_share_box">
+                <img class="operate_img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/unshare@2x.png">
+                <span class="count">分享</span>
+            </span>
+        </a>
+    </div>
+  </div>
+</div>
+</div>
+    <div id="prompt">
+        <svg t="1513153231313" class="icon" style="" viewbox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4182" id="mx_n_1513153231314" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16">
+            <defs>
+            <style type="text/css"></style>
+            </defs>
+        <path d="M512 0C228.8 0 0 228.8 0 512s228.8 512 512 512 512-228.8 512-512S795.2 0 512 0z m244.8 392L467.2 691.2c-8 9.6-24 12.8-36.8 12.8-12.8 0-27.2-3.2-36.8-12.8L267.2 560c-16-16-16-43.2 0-59.2s41.6-16 57.6 0l105.6 110.4 267.2-278.4c16-16 41.6-16 57.6 0s16 43.2 1.6 59.2z" p-id="4183" fill=""></path>
+        </svg>
+        <span>文章收藏成功</span>
+    </div>
+    <div class="app-shadowbox wap-shadowbox" >
+        <div class="app-box">
+            <div class="tip-massege">前往CSDN APP阅读全文</div>
+            <div class="tip-text">CSDN APP记录你的成长</div>
+            <div class="button-box button-box-new">
+            <a class="app-bt-cance read_more_btn" data-report-view='{"mod":"1592280848_002","extend1":"a"}' data-report-click='{"mod":"1592280848_002","extend1":"a"}' id= 'new_read_more' >取消</a>
+            <a class="app-bt-sure" id='wap_open_app_btn' data-report-view='{"mod":"1592280848_003","extend1":"a"}' data-name="a"  data-href="csdnapp://web?url=https://blog.csdn.net/u010569893/article/details/97538914">前往</a>
+            </div> 
+        </div>
+    </div>
+    <div class="comment-shadowbox wap-shadowbox">
+        <div class="comment-write-box">
+            <textarea name="" class="write-comment-content" id="writeComment" cols="30" rows="10" placeholder="请发表有价值的评论， 博客评论不欢迎灌水，良好的社区氛围需大家一起维护。"></textarea>
+            <div class="comment-write-bt">
+                <a class="write-bt-cancle" data-report-click='{"mod":"1589175530_003"}'>取消</a><a class="write-bt-sure" data-report-click='{"mod":"1589175530_002"}'>确认</a>
+            </div>
+        </div>
+    </div>
+    <div class="weixin-shadowbox wap-shadowbox">
+        <div class="guide-box">
+            <div class="tip">继续浏览精彩内容</div>
+            <div class="csdn-box item-box">
+              <div class="item"><img class="app-img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/csdnIcon@2x.png" alt=""></div>
+              <div class="item">
+              <div class="item-content">
+                <p class="title">CSDN</p>
+                <p class="text">成就一亿技术人</p>
+              </div>
+              </div>
+              <div class="item"><a class="open-app open-app-csdn" data-url="https://blog.csdn.net/u010569893/article/details/97538914" data-href="csdnapp://web?url=https://blog.csdn.net/u010569893/article/details/97538914">打开</a></div>
+            </div>
+            <div class="weixin-box item-box">
+              <div class="item item-display-none item-chrome"><img class="app-img" src="https://csdnimg.cn/release/blogv2/dist/mobile/img/chromeIcon@2x.png" alt=""></div>
+              <div class="item"><div class="item-content">浏览器</div></div>
+              <div class="item"><a class="open-app open-app-weixin">继续</a></div>
+            </div>
+        </div>
+    </div>
+    <!--ios版本提示-->
+    <div class="ios-shadowbox">
+        <div class="ios-box">
+            <div class="tip-massege">请升级应用版本</div>
+            <div class="button-box">
+                <a id="cancelBt" class="bt-cancel">取消</a>
+                <a id="upBt" class="bt-cancel" href="itms-apps://itunes.apple.com/cn/app/id1437086352?mt=8">立即升级</a>
+            </div>
+        </div>
+    </div>
+        <span class="feed-Sign-span" data-report-view='{"mod":"1588837951_001","dest":"blog_1592384110"}' data-href="csdnapp://web?url=https://blog.csdn.net/u010569893/article/details/97538914">APP内打开</span>
+    <script type="text/javascript" src="https://csdnimg.cn/release/blogv2/dist/mobile/js/common-553b4c1b88.min.js"></script>
+    <script type="text/javascript" src="https://csdnimg.cn/release/blogv2/dist/mobile/js/detail-eed90b4a15.min.js"></script>
+    <script src="https://g.csdnimg.cn/user-ordercart/3.0.0/user-ordercart.js"></script>
+    <script type="text/javascript" src="https://csdnimg.cn/release/blogv2/dist/mobile/js/columnPay-06d1d0bd67.min.js"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/wap_detail_view-5b6e8eddaf.css"/>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+       <script src="https://g.csdnimg.cn/??sharewx/1.2.1/sharewx.js,baidu-search/1.0.10/baidu-search.js" type="text/javascript"></script>
+    <script src='//g.csdnimg.cn/common/csdn-report/report.js' type='text/javascript'></script>
+    <script src="https://g.csdnimg.cn/preview-img/2.1/preview-img.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        if (window.csdn.sharewx.isWeiXin()) {
+            window.csdn.sharewx.getConfig()
+            $(document).ready(function () {
+                var shareImgUrl = ''
+                if ($(".article_content") && $(".article_content").find("img").length > 0 && $(".article_content img").first().data('src')) {
+                    shareImgUrl = $(".article_content img").first().data('src')
+                }
+                var shareData = {
+                    title: "python 字典与json的区别",
+                    desc: 'python 字典与json的区别一. python的字典和json字符串的区别python中，json和dict非常类似，都是key-value的形式，而且json和dict也可以非常方便的通过dumps和loads互转，但是它们之间还是有区别的：json：是一种数据格式，是纯字符串。可以被解析成python的dict或其他形式。dict：是一个完整的数据结构，是对hash table这...',
+                    link: "https://blog.csdn.net/u010569893/article/details/97538914",
+                    imgUrl: shareImgUrl,
+                }
+                window.csdn.sharewx.onMenuShare(shareData)
+            })
+        }
+    </script>
+    <script>
+        var observer = lozad('.article_content img', {
+            rootMargin: '10px 0px', // syntax similar to that of CSS Margin
+            threshold: 0.1 // ratio of element convergence
+        });
+        observer.observe();
+    </script>
+    <script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
+    <script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+                "HTML-CSS": {
+                        linebreaks: { automatic: true, width: "94%container" },
+                        imageFont: null
+                },
+                tex2jax: {
+                    preview: "none",
+                    ignoreClass:"article_title"
+                },
+                mml2jax: {
+                    preview: 'none'
+                }
+        });
+    </script>
+    <script type="text/javascript" crossorigin src="https://g.csdnimg.cn/user-login/3.0.1/user-login.js"></script>
+</body>
+</html>
